@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% for specialistes in specialistes %}
+<tr>
+    <td>{{ specialistes.id }}</td>
+    <td>{{ specialistes.personne }}</td>
+    <td>{{ specialistes.personne.adresse_physique }}</td>
+    <td>{{ specialistes.dossier.description }}</td>
+    <td>{{ specialistes.description2 }}</td>
+    <td>{{ specialistes.date_create |date:"Y-m-d"}}</td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7" class="text-center bg-warning">No dossier</td>
+</tr>
+{% endfor %}

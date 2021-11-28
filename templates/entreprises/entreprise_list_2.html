@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% for business in business %}
+<tr>
+    <td>{{ business.id }}</td>
+    <td>{{ business.entreprise }}</td>
+    <td>{{ business.email}}</td>
+    <td>{{ business.nombre_agent }}</td>
+    <td>{{ business.adresse }}</td>
+    <td>{{ business.date_create |date:"Y-m-d"}}</td>
+
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7" class="text-center bg-warning">No entreprise</td>
+</tr>
+{% endfor %}

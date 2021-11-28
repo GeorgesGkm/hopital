@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% for business in business %}
+<tr>
+    <td>{{ business.id }}</td>
+    <td>{{ business.nom_servcie }}</td>
+    <td>{{ business.nombre_medecin}}</td>
+    <td>
+        <button type="button" class="btn btn-warning js-update-book" data-url="{% url 'service_update' business.id %}">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Edit
+        </button>
+    </td>
+    <td>
+        <button class="btn btn-danger js-delete-book" data-url="{% url 'service_delete'  business.id %}">
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+        </button>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7" class="text-center bg-warning">No service</td>
+</tr>
+{% endfor %}

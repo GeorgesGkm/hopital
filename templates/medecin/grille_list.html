@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% for persons in persons %}
+<tr>
+    <td>{{ persons.id }}</td>
+    <td>{{ persons.nom }}</td>
+    <td>{{ persons.email}}</td>
+    <td>{{ persons.sexe }}</td>
+    <td>{{ persons.type_de_service }}</td>
+    <td>{{ persons.adresse_physique }}</td>
+    <td>{{ persons.date_create |date:"Y-m-d"}}</td>
+
+
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7" class="text-center bg-warning">No book</td>
+</tr>
+{% endfor %}

@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'home.html' %}
+{% load static %}
+
+{% block javascript %}
+<script src="{% static 'js/books.js' %}"></script>
+{% endblock %}
+{% block content %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="font-weight-bold text-primary">Liste de Service </h4>
+
+        <button class="btn btn-primary js-create-book" data-url="{% url 'service_create' %}"
+                style="position:absolute;right:4%;top: 2%;">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </div>
+    <div class="card-body font-weight-bold">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="book-table" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Service</th>
+                    <th>Nombre Medecine</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>N°</th>
+                    <th>Service</th>
+                    <th>Nombre Medecine</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                {% include "services/service_list_2.html" %}
+                </tbody>
+            </table>
+            <div class="modal fade" id="modal-book">
+                <div class="modal-dialog">
+                    <div class="modal-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
