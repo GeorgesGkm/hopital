@@ -1,11 +1,11 @@
 {% for persons in persons %}
 <tr>
+    <td>{{ persons.id }}</td>
     <td>{{ persons.nom }}</td>
     <td>{{ persons.email}}</td>
     <td>{{ persons.sexe }}</td>
-    <td>{{ persons.personne_contacter }}</td>
     <td>{{ persons.adresse_physique }}</td>
-    <td>{{ persons.date_debut}}</td>
+    <td>{{ persons.date_create |date:"Y-m-d"}}</td>
 
 </tr>
 {% empty %}
