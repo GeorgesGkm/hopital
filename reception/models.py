@@ -26,7 +26,7 @@ class Service(models.Model):
 
 # models for Personne or Patient.
 class Personne(models.Model):
-    type_de_service = models.ForeignKey(Service, null=True, on_delete=models.SET_NULL)
+
     SEXES = (('masculin', 'masculin'),
              ('femmin', 'femmin'))
     nom = models.CharField(max_length=200, null=True)

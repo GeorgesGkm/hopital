@@ -9,7 +9,7 @@ from reception.models import Service
 class PersonneForm(forms.ModelForm):
     class Meta:
         model = Personne
-        fields = ('nom', 'sexe', 'email','type_de_service', 'adresse_physique', 'date_create')
+        fields = ('nom', 'sexe', 'email', 'adresse_physique', 'date_create')
 
 
 class AgentForm(forms.ModelForm):
